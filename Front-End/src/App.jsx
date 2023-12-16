@@ -9,7 +9,7 @@ function App() {
 
   const getItems = async() => {
     try {
-      const res = await axios.get("http://localhost:3001/getdata");
+      const res = await axios.get("https://image-upload-pc62.onrender.com/getdata");
       console.log("effect", res.data);
       setimg(res.data)
     } catch (error) {
@@ -20,7 +20,7 @@ function App() {
     const formdata = new FormData();
     formdata.append("file", file);
     const res = axios
-      .post("http://localhost:3001/upload", formdata)
+      .post("https://image-upload-pc62.onrender.com/upload", formdata)
       .then((res) => {
         console.log("After upload",res);
         getItems()
@@ -48,7 +48,7 @@ function App() {
         {img.map((i)=>{
           console.log("i",i.image);
           return <div >
-           <img key={i._id} src={`http://localhost:3001/Images/${i.image}`} alt="profile" className="w-72 h-64 object-cover" /> 
+           <img key={i._id} src={`https://image-upload-pc62.onrender.com/Images/${i.image}`} alt="profile" className="w-72 h-64 object-cover" /> 
           </div>
         })}
         </div>
